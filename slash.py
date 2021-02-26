@@ -7,6 +7,7 @@ class Slash(commands.Cog):
   """.
   This class handles all slash commands
   """
+  
   def __init__(self, bot):
     self.bot = bot
   # 703266392295604254
