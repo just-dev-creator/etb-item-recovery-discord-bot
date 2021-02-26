@@ -4,7 +4,7 @@ import main
 from datetime import datetime
 
 class Slash(commands.Cog):
-  """
+  """.
   This class handles all slash commands
   """
   def __init__(self, bot):
