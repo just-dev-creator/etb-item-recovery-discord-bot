@@ -73,7 +73,7 @@ class Slash(commands.Cog):
     target_dm = await target.create_dm()
     # Send approval to target
     await target_dm.send("Herzlichen Glückwunsch! Dein Antrag wurde akzeptiert! Du solltest deine Items innerhalb der nächsten zwei Tage erhalten. Bitte beachte, dass kein neuer Antrag für den Vorfall gestellt werden darf! ")
-    if Informationen != None:
+    if Informationen is not None:
       await target_dm.send("Hier sind weitere Informationen von deinem Sachbearbeiter für dich: " + Informationen)
     # Send confirmation for steps to team member
     await ctx.send("Du hast den Antrag erfolgreich akzeptiert! ", hidden=True)
@@ -106,7 +106,7 @@ class Slash(commands.Cog):
     target_dm = await target.create_dm()
     # Send approval to target
     await target_dm.send("Es tut uns leid, aber dein Antrag wurde leider nicht akzeptiert. Dies könnte daran liegen, dass du zu wenig oder ungenaue Informationen angegeben hast. Bitte stelle aber erst in frühestens drei Tagen einen weiteren Antrag zu dieser Situation! ")
-    if Informationen != None:
+    if Informationen is not None:
       await target_dm.send("Hier sind weitere Informationen von deinem Sachbearbeiter für dich: " + Informationen)
     # Send confirmation for steps to team member
     await ctx.send("Du hast den Antrag erfolgreich abgelehnt! ", hidden=True)
