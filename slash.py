@@ -18,6 +18,9 @@ class Slash(commands.Cog):
     "required": True,
     "description": "Gib dein Anliegen in ein bis zwei Sätzen an."
   }], description="Erstelle eine Schadensersatzforderung aufgrund Laggs. ")
+  """
+  Creates a ticket for refund
+  """
   async def _createticket(self, ctx: SlashContext, Betreff, Kurzbeschreibung):
     # Respond to slash command
     await ctx.respond(eat=True)
@@ -56,6 +59,9 @@ class Slash(commands.Cog):
     "required": False,
     "description": "Gib dem User einige weitere Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
+  """
+  When this function the request is accepted
+  """
   async def _accept(self, ctx: SlashContext, userid: str, Informationen: str = None):
     await ctx.respond(eat=True)
     # Convert Userid-String to int
@@ -89,6 +95,9 @@ class Slash(commands.Cog):
     "required": False,
     "description": "Gib dem User einige weitere Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
+  """
+  When this function is called the request gets cancelled
+  """
   async def _decline(self, ctx: SlashContext, userid: str, Informationen: str = None):
     await ctx.respond(eat=True)
     # Convert Userid-String to int
@@ -122,6 +131,9 @@ class Slash(commands.Cog):
     "required": True,
     "description": "Gib dem User Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
+  """
+  When this function is called the user gets a custom information
+  """
   async def _custom(self, ctx: SlashContext, userid: str, Informationen: str):
     await ctx.respond(eat=True)
     # Convert Userid-String to int
@@ -138,5 +150,8 @@ class Slash(commands.Cog):
     # Send confirmation for steps to team member
     await ctx.send("Du hast die Nachricht erfolgreich übermittelt! ", hidden=True)
 
+"""
+Sets up the cog
+"""
 def setup(bot):
   bot.add_cog(Slash(bot))

@@ -9,6 +9,9 @@ class DmConversation(commands.Cog):
     self.bot = bot
   
   @commands.Cog.listener()
+  """
+  This is called when the bot registers a message
+  """
   async def on_message(self, message):
     # Check if author is bot
     if message.author.bot:
@@ -115,5 +118,8 @@ class DmConversation(commands.Cog):
       else:
         await message.channel.send("Du hast alle Angaben gemacht! Bitte warte, bis sich ein Teammitglied bei dir meldet!")
 
+"""
+Sets up the cog
+"""
 def setup(bot):
   bot.add_cog(DmConversation(bot))

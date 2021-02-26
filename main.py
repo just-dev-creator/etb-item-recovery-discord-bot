@@ -9,6 +9,9 @@ token = os.environ["DISCORD_BOT_TOKEN"]
 slash = SlashCommand(client, override_type=True)
 
 @client.event
+"""
+Is called when the client logged in succesfully
+"""
 async def on_ready():
   # Notify user when client is connected
   print('We have logged in as {0.user}'.format(client))
