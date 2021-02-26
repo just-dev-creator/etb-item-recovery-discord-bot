@@ -4,6 +4,9 @@ from discord import Embed
 from discord import Colour
 import main
 from datetime import datetime
+"""
+This class is for all messages from the dms
+"""
 class DmConversation(commands.Cog):
   def __init__(self, bot):
     self.bot = bot

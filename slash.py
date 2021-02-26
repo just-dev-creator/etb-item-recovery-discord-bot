@@ -3,6 +3,9 @@ from discord_slash import cog_ext, SlashContext
 import main
 from datetime import datetime
 
+"""
+This class handles all slash commands
+"""
 class Slash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
