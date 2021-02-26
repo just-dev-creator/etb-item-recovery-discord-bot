@@ -21,9 +21,7 @@ class Slash(commands.Cog):
     "required": True,
     "description": "Gib dein Anliegen in ein bis zwei Sätzen an."
   }], description="Erstelle eine Schadensersatzforderung aufgrund Laggs. ")
-  """
-  Creates a ticket for refund
-  """
+  # Created the refund ticket
   async def _createticket(self, ctx: SlashContext, Betreff, Kurzbeschreibung):
     # Respond to slash command
     await ctx.respond(eat=True)
