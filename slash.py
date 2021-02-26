@@ -22,7 +22,7 @@ class Slash(commands.Cog):
     "description": "Gib dein Anliegen in ein bis zwei Sätzen an."
   }], description="Erstelle eine Schadensersatzforderung aufgrund Laggs. ")
   async def _createticket(self, ctx: SlashContext, Betreff, Kurzbeschreibung):
-    """
+    """.
     Creating the refund ticker
     """
     # Respond to slash command
@@ -63,7 +63,7 @@ class Slash(commands.Cog):
     "description": "Gib dem User einige weitere Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
   async def _accept(self, ctx: SlashContext, userid: str, Informationen: str = None):
-    """
+    """.
     When this function the request is accepted
     """
     await ctx.respond(eat=True)
@@ -98,7 +98,7 @@ class Slash(commands.Cog):
     "description": "Gib dem User einige weitere Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
   async def _decline(self, ctx: SlashContext, userid: str, Informationen: str = None):
-    """
+    """.
     When this function is called the request gets cancelled
     """
     await ctx.respond(eat=True)
@@ -133,7 +133,7 @@ class Slash(commands.Cog):
     "description": "Gib dem User Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
   async def _custom(self, ctx: SlashContext, userid: str, Informationen: str):
-    """
+    """.
     When this function is called the user gets custom information
     """
     await ctx.respond(eat=True)
