@@ -10,6 +10,9 @@ class Slash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
   # 703266392295604254
+  """
+  Creating the refund ticker
+  """
   @cog_ext.cog_slash(name="createticket", guild_ids=[703266392295604254, 757917063070089327], options=[{
     "name": "Betreff",
     "type": 3,
@@ -21,7 +24,6 @@ class Slash(commands.Cog):
     "required": True,
     "description": "Gib dein Anliegen in ein bis zwei Sätzen an."
   }], description="Erstelle eine Schadensersatzforderung aufgrund Laggs. ")
-  # Created the refund ticket
   async def _createticket(self, ctx: SlashContext, Betreff, Kurzbeschreibung):
     # Respond to slash command
     await ctx.respond(eat=True)
@@ -49,6 +51,9 @@ class Slash(commands.Cog):
     # Informing the user about the system and asking for the time
     await dm.send("Dein persönlichr Channel wurde initialisiert. Bitte beantworte die folgenden Nachrichten hier im Chat!")
     await dm.send("Wann hat der Vorfall stattgefunden. Bitte gib die Zeit genau an, da wir sonst die aufgetretenen Lags nicht verifizieren können und deinen Antrag ablehnen müssen. ")
+  """
+  When this function the request is accepted
+  """
   @cog_ext.cog_slash(name="accept", guild_ids=[703266392295604254], options=[{
     "name": "userid",
     "type": 3,
@@ -60,9 +65,6 @@ class Slash(commands.Cog):
     "required": False,
     "description": "Gib dem User einige weitere Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
-  """
-  When this function the request is accepted
-  """
   async def _accept(self, ctx: SlashContext, userid: str, Informationen: str = None):
     await ctx.respond(eat=True)
     # Convert Userid-String to int
@@ -84,7 +86,9 @@ class Slash(commands.Cog):
       await target_dm.send("Hier sind weitere Informationen von deinem Sachbearbeiter für dich: " + Informationen)
     # Send confirmation for steps to team member
     await ctx.send("Du hast den Antrag erfolgreich akzeptiert! ", hidden=True)
-  
+  """
+  When this function is called the request gets cancelled
+  """
   @cog_ext.cog_slash(name="decline", guild_ids=[703266392295604254], options=[{
     "name": "userid",
     "type": 3,
@@ -96,9 +100,6 @@ class Slash(commands.Cog):
     "required": False,
     "description": "Gib dem User einige weitere Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
-  """
-  When this function is called the request gets cancelled
-  """
   async def _decline(self, ctx: SlashContext, userid: str, Informationen: str = None):
     await ctx.respond(eat=True)
     # Convert Userid-String to int
@@ -120,7 +121,9 @@ class Slash(commands.Cog):
       await target_dm.send("Hier sind weitere Informationen von deinem Sachbearbeiter für dich: " + Informationen)
     # Send confirmation for steps to team member
     await ctx.send("Du hast den Antrag erfolgreich abgelehnt! ", hidden=True)
-
+  """
+  When this function is called the user gets a custom information
+  """
   @cog_ext.cog_slash(name="custom", guild_ids=[703266392295604254], options=[{
     "name": "userid",
     "type": 3,
@@ -132,9 +135,6 @@ class Slash(commands.Cog):
     "required": True,
     "description": "Gib dem User Informationen"
   }], description="Akzeptiere die Anfrage eines Users")
-  """
-  When this function is called the user gets a custom information
-  """
   async def _custom(self, ctx: SlashContext, userid: str, Informationen: str):
     await ctx.respond(eat=True)
     # Convert Userid-String to int
