@@ -118,7 +118,5 @@ class DmConversation(commands.Cog):
         await message.channel.send("Du hast alle Angaben gemacht! Bitte warte, bis sich ein Teammitglied bei dir meldet!")
 
 def setup(bot):
-  """
-  Sets up the cog
-  """
+  """Sets up the cog"""
   bot.add_cog(DmConversation(bot))
