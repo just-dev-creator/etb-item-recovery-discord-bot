@@ -5,17 +5,13 @@ from discord import Colour
 import main
 from datetime import datetime
 class DmConversation(commands.Cog):
-  """
-  This class is for all messages from the dms
-  """
+  """This class is for all messages from the dms"""
   def __init__(self, bot):
     self.bot = bot
   
   @commands.Cog.listener()
   async def on_message(self, message):
-    """
-    This is called when the bot registers a message
-    """
+    """This is called when the bot registers a message"""
     # Check if author is bot
     if message.author.bot:
       return
