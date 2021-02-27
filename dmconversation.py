@@ -12,10 +12,10 @@ class DmConversation(commands.Cog):
     self.bot = bot
   
   @commands.Cog.listener()
-  """
-  This is called when the bot registers a message
-  """
   async def on_message(self, message):
+    """
+    This is called when the bot registers a message
+    """
     # Check if author is bot
     if message.author.bot:
       return
