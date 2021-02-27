@@ -17,7 +17,7 @@ async def on_ready():
   await slash.sync_all_commands(delete_from_unused_guilds=False)
 
 # MongoDB Connection
-mongoClient = pymongo.MongoClient("***REMOVED***")
+mongoClient = pymongo.MongoClient(os.envrion["MONGODB_CONNECTION_STRING"])
 db = mongoClient["etb-item-recovery"]
 collection = db["cases"]
 
