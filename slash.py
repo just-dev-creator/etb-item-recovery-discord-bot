@@ -153,5 +153,5 @@ class Slash(commands.Cog):
     await ctx.send("Du hast die Nachricht erfolgreich übermittelt! ", hidden=True)
 
 def setup(bot):
-  """Sets up the cog"""
+  """Sets up the cog."""
   bot.add_cog(Slash(bot))
