@@ -6,6 +6,7 @@ import main
 from datetime import datetime
 class DmConversation(commands.Cog):
   """This class is for all messages from the dms"""
+  
   def __init__(self, bot):
     self.bot = bot
   
