@@ -152,8 +152,8 @@ class Slash(commands.Cog):
     # Send confirmation for steps to team member
     await ctx.send("Du hast die Nachricht erfolgreich übermittelt! ", hidden=True)
 
-"""
-Sets up the cog
-"""
 def setup(bot):
+  """
+  Sets up the cog
+  """
   bot.add_cog(Slash(bot))

@@ -4,10 +4,10 @@ from discord import Embed
 from discord import Colour
 import main
 from datetime import datetime
-"""
-This class is for all messages from the dms
-"""
 class DmConversation(commands.Cog):
+  """
+  This class is for all messages from the dms
+  """
   def __init__(self, bot):
     self.bot = bot
   
@@ -121,8 +121,8 @@ class DmConversation(commands.Cog):
       else:
         await message.channel.send("Du hast alle Angaben gemacht! Bitte warte, bis sich ein Teammitglied bei dir meldet!")
 
-"""
-Sets up the cog
-"""
 def setup(bot):
+  """
+  Sets up the cog
+  """
   bot.add_cog(DmConversation(bot))
