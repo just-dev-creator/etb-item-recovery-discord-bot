@@ -18,18 +18,15 @@ class DmConversation(commands.Cog):
       return
     # Check if channel is dm
     if message.channel.type is ChannelType.private:
-      # Check if user has open case
-      if main.collection.find_one({
+      # Search fo db entry
+      found = main.collection.find_one({
         "userid": message.author.id
-      }) is None:
+      })
+      # Check if user has open case
+      if found is None:
         await message.channel.send("Du hast kein offenes Case!")
       # Check if time question was already answered
-      elif not "time" in main.collection.find_one({
-        "userid": message.author.id
-      }):
-        found = main.collection.find_one({
-          "userid": message.author.id
-        })
+      elif not "time" in found:
         operation = {"$set": {
           "time": message.content,
           "lastcontact": datetime.now()
@@ -39,12 +36,7 @@ class DmConversation(commands.Cog):
         await message.channel.send("Beschreibe den Lag kurz. Bitte beachte, dass sofern die Beschreibung zu ungenau ist, wir deinen Antrag nicht bearbeiten können! ")
       
       # Check if scenario question was already answered
-      elif not "scenario" in main.collection.find_one({
-          "userid": message.author.id
-        }):
-        found = main.collection.find_one({
-          "userid": message.author.id
-        })
+      elif not "scenario" in found:
         operation = {"$set": {
           "scenario": message.content,
           "lastcontact": datetime.now()
@@ -54,12 +46,7 @@ class DmConversation(commands.Cog):
         await message.channel.send("Nenne deine Items in einer Nachricht. Solltest du zwei Nachrichten senden, wird die zweite Nachricht ignoriert! Bitte gib Items immer mit ihrer Durability und Enchantments, sofern vorhanden, an! Unausführliche oder inkorrekte Angaben können zu einem Abbruch des Verfahrens führen! ")
       
       # Check if items question was already answered
-      elif not "items" in main.collection.find_one({
-          "userid": message.author.id
-        }):
-          found = main.collection.find_one({
-            "userid": message.author.id
-          })
+      elif not "items" in found:
           operation = {"$set": {
             "items": message.content,
             "lastcontact": datetime.now()
@@ -78,12 +65,7 @@ class DmConversation(commands.Cog):
           await message.channel.send(embed=embed)
 
       # Check if wasnt confirmed
-      elif not "confirmed" in main.collection.find_one({
-          "userid": message.author.id
-        }):
-          found = main.collection.find_one({
-            "userid": message.author.id
-          })
+      elif not "confirmed" in found:
           if message.content == "Ja":
             operation = {"$set": {
               "confirmed": True,
