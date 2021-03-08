@@ -10,8 +10,8 @@ class Slash(commands.Cog):
   
   def __init__(self, bot):
     self.bot = bot
-  # 703266392295604254
-  @cog_ext.cog_slash(name="createticket", guild_ids=[703266392295604254, 757917063070089327], options=[{
+  # EtB ID: 757917063070089327
+  @cog_ext.cog_slash(name="createticket", guild_ids=[703266392295604254, ], options=[{
     "name": "Betreff",
     "type": 3,
     "required": True,
@@ -21,8 +21,13 @@ class Slash(commands.Cog):
     "type": 3,
     "required": True,
     "description": "Gib dein Anliegen in ein bis zwei Sätzen an."
+  }, {
+    "name": "clientside",
+    "type": 5,
+    "required": True,
+    "description": "Ist der Fehler nach §5.2 clientseitig verschuldet? (Wenn ja, heißt das nicht, dass der Antrag nicht bearbeitet wird!)"
   }], description="Erstelle eine Schadensersatzforderung aufgrund Laggs. ")
-  async def _createticket(self, ctx: SlashContext, Betreff, Kurzbeschreibung):
+  async def _createticket(self, ctx: SlashContext, Betreff, Kurzbeschreibung, clientside: bool):
     """.
     Creating the refund ticker
     """
@@ -37,6 +42,10 @@ class Slash(commands.Cog):
       await ctx.send("Du hast bereits eine offene Anfrage!", hidden=True)
       return
 
+    # Informing the user that his case isn't prioritisied
+    if clientside:
+      await ctx.send("Wir haben gesehen, dass dein Bug clientseitig enstanden ist. Dies kann zu Verzögerungen bei der Rückerstattung führen, **sie wird jedoch trotzdem behandelt.**")
+
     # Informing the user that his case was opened
     await ctx.send(f"Deine Forderung mit dem Betreff `{Betreff}` und der Kurzbeschreibung `{Kurzbeschreibung}` wurde erstellt. Schaue bitte in deine privaten Nachrichten.", hidden=True)
     # Creating DM-Channel with user
@@ -47,7 +56,8 @@ class Slash(commands.Cog):
       "userid": ctx.author_id,
       "lastcontact": datetime.now(),
       "title": Betreff,
-      "desc": Kurzbeschreibung
+      "desc": Kurzbeschreibung,
+      "clientside": clientside
     })
     # Informing the user about the system and asking for the time
     await dm.send("Dein persönlichr Channel wurde initialisiert. Bitte beantworte die folgenden Nachrichten hier im Chat!")

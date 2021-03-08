@@ -87,6 +87,7 @@ class DmConversation(commands.Cog):
           embed.set_footer(text="This bot was created by justCoding!")
           embed.add_field(name=":globe_with_meridians:", value=f"Betreff: `{found['title']}`")
           embed.add_field(name=":book:", value=f"Kurzbeschreibung: `{found['desc']}`")
+          embed.add_field(name=":mens:", value=f"Clientseitig: {found['clientside']}")
           embed.add_field(name=":clock1:", value=f"Zeitpunkt: `{found['time']}`")
           embed.add_field(name=":map:", value=f"Szenario: `{found['scenario']}`")
           embed.add_field(name=":card_box:", value=f"Verlorene Items: `{found['items']}`")
