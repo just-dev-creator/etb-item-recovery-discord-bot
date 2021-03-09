@@ -25,5 +25,5 @@ MONGODB_CONNECTION_STRING=YOUR-CONNECTION-STRING
 python main.py
 ```
 ### Upcoming changes
-- [X] Make changes for easy use for everyone
-- [ ] Create ticket-like conversation
+- [ ] Make changes for easy use for everyone
+- [X] Create ticket-like conversation
