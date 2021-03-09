@@ -185,7 +185,7 @@ class Slash(commands.Cog):
     if ctx.author_id != 460143849172631553:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
       return
-    
+    await ctx.send(content="Wir prüfen alle Fälle!", hidden=True, delete_after=4)
     found = main.collection.find_one({
       "confirmed": True
       ,"clientside": False
