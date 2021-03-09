@@ -1,6 +1,7 @@
 import os
 from discord.ext import commands
 from discord_slash import SlashCommand
+import discord.ext
 import pymongo
 
 # Set up the bot and slash commands
