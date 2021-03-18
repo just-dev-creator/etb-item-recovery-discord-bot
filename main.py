@@ -4,6 +4,9 @@ from discord_slash import SlashCommand
 import pymongo
 from dotenv import load_dotenv
 
+# Initialize team variable. ADD YOUR MEMBERS HERE
+team_members = [460143849172631553]
+
 # Setup .env file
 load_dotenv()
 

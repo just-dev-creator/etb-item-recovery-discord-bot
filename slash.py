@@ -90,7 +90,7 @@ class Slash(commands.Cog):
     # Convert Userid-String to int
     userid = int(userid)
     # Check for permissions
-    if ctx.author_id != 460143849172631553:
+    if ctx.author_id not in main.team_members:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
       return
     # Find and delete MongoDB entry
@@ -125,7 +125,7 @@ class Slash(commands.Cog):
     # Convert Userid-String to int
     userid = int(userid)
     # Check for permissions
-    if ctx.author_id != 460143849172631553:
+    if ctx.author_id not in main.team_members:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
       return
     # Find and delete MongoDB entry
@@ -157,7 +157,7 @@ class Slash(commands.Cog):
     When this function is called the user gets custom information
     """
     # Check for permissions
-    if ctx.author_id != 460143849172631553:
+    if ctx.author_id not in main.team_members:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
       return
     await ctx.respond(eat=True)
@@ -182,7 +182,7 @@ class Slash(commands.Cog):
     """
     await ctx.respond(eat=True)
     # Check for permissions
-    if ctx.author_id != 460143849172631553:
+    if ctx.author_id not in main.team_members:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
       return
     await ctx.send(content="Wir prüfen alle Fälle!", hidden=True, delete_after=4)
@@ -350,7 +350,7 @@ class Slash(commands.Cog):
   ], description="Zeigt alle Details einer Anfrage", guild_ids=[703266392295604254, 757917063070089327])
   async def _show(self, ctx: SlashContext, userid: str):
     await ctx.respond(eat=True)
-    if ctx.author_id != 460143849172631553:
+    if ctx.author_id not in main.team_members:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
       return
 
