@@ -29,7 +29,7 @@ class DmConversation(commands.Cog):
             if found is None:
                 await message.channel.send("Du hast kein offenes Case!")
             # Check if time question was already answered
-            elif not "time" in found:
+            elif "time" not in found:
                 operation = {"$set": {
                     "time": message.content,
                     "lastcontact": datetime.now()
@@ -50,7 +50,7 @@ class DmConversation(commands.Cog):
                 await message.channel.send(embed=embed)
 
             # Check if scenario question was already answered
-            elif not "scenario" in found:
+            elif "scenario" not in found:
                 operation = {"$set": {
                     "scenario": message.content,
                     "lastcontact": datetime.now()

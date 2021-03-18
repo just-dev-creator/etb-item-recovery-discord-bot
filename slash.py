@@ -35,7 +35,10 @@ class Slash(commands.Cog):
     Creating the refund ticker
     """
     # Respond to slash command
-    await ctx.respond(eat=True)
+    try:
+      await ctx.respond(eat=True)
+    except Exception:
+      print("Weird ctx.respond error. IDK why, doesn't fixed yet, please send help")
     # Check if user already has an open case
     query = {
       "userid": ctx.author_id
@@ -86,7 +89,11 @@ class Slash(commands.Cog):
     """.
     When this function the request is accepted
     """
-    await ctx.respond(eat=True)
+    try:
+      await ctx.respond(eat=True)
+    except Exception:
+      print("Weird ctx.respond error. IDK why, doesn't fixed yet, please send help")
+
     # Convert Userid-String to int
     userid = int(userid)
     # Check for permissions
