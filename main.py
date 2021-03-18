@@ -2,6 +2,10 @@ import os
 from discord.ext import commands
 from discord_slash import SlashCommand
 import pymongo
+from dotenv import load_dotenv
+
+# Setup .env file
+load_dotenv()
 
 # Set up the bot and slash commands
 client = commands.Bot(command_prefix='%')
