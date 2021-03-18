@@ -30,4 +30,8 @@ collection = db["cases"]
 client.load_extension("slash")
 client.load_extension("dmconversation")
 # Run the bot
-client.run(token)
+try:
+  client.run(token)
+except KeyboardInterrupt:
+  print("Goodbye.")
+  exit(0)
