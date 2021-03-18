@@ -5,7 +5,7 @@ import pymongo
 from dotenv import load_dotenv
 
 # Initialize team variable. SET YOUR TEAM MEMBERS HERE
-team_members = [460143849172631553]
+team_members = [460143849172631553, 806205106122915860]
 
 # Initialize servers. SET YOUR SERVERS HERE
 server_ids = [703266392295604254, 757917063070089327]
