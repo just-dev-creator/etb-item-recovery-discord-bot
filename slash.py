@@ -14,7 +14,7 @@ class Slash(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
   # EtB ID: 757917063070089327
-  @cog_ext.cog_slash(name="createticket", guild_ids=[703266392295604254, 757917063070089327], options=[{
+  @cog_ext.cog_slash(name="createticket", guild_ids=main.server_ids, options=[{
     "name": "Betreff",
     "type": 3,
     "required": True,
@@ -74,7 +74,7 @@ class Slash(commands.Cog):
     embed.add_field(name=":exclamation:", value="Sofern die Angaben zu ungenau sind, wird dein Antrag abgelehnt. Bei Toden reicht eine Genauigkeit auf die Stunde, bei anderweitigen Verlusten müssen deine Angaben auf die Minute stimmen.")
 
     await dm.send(embed=embed)
-  @cog_ext.cog_slash(name="accept", guild_ids=[703266392295604254, 757917063070089327], options=[{
+  @cog_ext.cog_slash(name="accept", guild_ids=main.server_ids, options=[{
     "name": "userid",
     "type": 3,
     "required": True,
@@ -113,7 +113,7 @@ class Slash(commands.Cog):
       await target_dm.send("Hier sind weitere Informationen von deinem Sachbearbeiter für dich: " + Informationen)
     # Send confirmation for steps to team member
     await ctx.send("Du hast den Antrag erfolgreich akzeptiert! ", hidden=True)
-  @cog_ext.cog_slash(name="decline", guild_ids=[703266392295604254, 757917063070089327], options=[{
+  @cog_ext.cog_slash(name="decline", guild_ids=main.server_ids, options=[{
     "name": "userid",
     "type": 3,
     "required": True,
@@ -148,7 +148,7 @@ class Slash(commands.Cog):
       await target_dm.send("Hier sind weitere Informationen von deinem Sachbearbeiter für dich: " + Informationen)
     # Send confirmation for steps to team member
     await ctx.send("Du hast den Antrag erfolgreich abgelehnt! ", hidden=True)
-  @cog_ext.cog_slash(name="custom", guild_ids=[703266392295604254, 757917063070089327], options=[{
+  @cog_ext.cog_slash(name="custom", guild_ids=main.server_ids, options=[{
     "name": "userid",
     "type": 3,
     "required": True,
@@ -182,7 +182,7 @@ class Slash(commands.Cog):
     # Send confirmation for steps to team member
     await ctx.send("Du hast die Nachricht erfolgreich übermittelt! ", hidden=True)
 
-  @cog_ext.cog_slash(name="suggest", guild_ids=[703266392295604254, 757917063070089327], description="Zeigt die älteste Konversation an.")
+  @cog_ext.cog_slash(name="suggest", guild_ids=main.server_ids, description="Zeigt die älteste Konversation an.")
   async def _suggest(self, ctx: SlashContext):
     """
     Shows the user a case that he can work on
@@ -257,7 +257,7 @@ class Slash(commands.Cog):
     "description": "Gib deine Antwort an.",
     "required": True,
     "type": 3
-  }], description="Fügt eine Antwort der Konversation hinzu. ", guild_ids=[703266392295604254, 757917063070089327])
+  }], description="Fügt eine Antwort der Konversation hinzu. ", guild_ids=main.server_ids)
   async def _answer(self, ctx: SlashContext, userid, answer):
     await ctx.respond(eat=True)
     userid = int(userid)
@@ -354,7 +354,7 @@ class Slash(commands.Cog):
       "type": 3,
       "description": "Die ID des Users"
     }
-  ], description="Zeigt alle Details einer Anfrage", guild_ids=[703266392295604254, 757917063070089327])
+  ], description="Zeigt alle Details einer Anfrage", guild_ids=main.server_ids)
   async def _show(self, ctx: SlashContext, userid: str):
     await ctx.respond(eat=True)
     if ctx.author_id not in main.team_members:

@@ -4,8 +4,11 @@ from discord_slash import SlashCommand
 import pymongo
 from dotenv import load_dotenv
 
-# Initialize team variable. ADD YOUR MEMBERS HERE
+# Initialize team variable. SET YOUR TEAM MEMBERS HERE
 team_members = [460143849172631553]
+
+# Initialize servers. SET YOUR SERVERS HERE
+server_ids = [703266392295604254, 757917063070089327]
 
 # Setup .env file
 load_dotenv()
