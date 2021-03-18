@@ -10,7 +10,7 @@ class DmConversation(commands.Cog):
 
   def __init__(self, bot):
     self.bot = bot
-  
+
   @commands.Cog.listener()
   async def on_message(self, message):
     """This is called when the bot registers a message."""
@@ -42,7 +42,7 @@ class DmConversation(commands.Cog):
         embed.add_field(name=":exclamation:", value="Sofern die Angaben zu ungenau sind, wird dein Antrag abgelehnt. Du könntest z.B. versuchen, einen Großteil der oben genannten Beispielfragen zu beantworten.")
 
         await message.channel.send(embed=embed)
-      
+
       # Check if scenario question was already answered
       elif not "scenario" in found:
         operation = {"$set": {
@@ -117,7 +117,7 @@ class DmConversation(commands.Cog):
           embed.add_field(name=":question:", value="Du fragst dich jetzt vielleicht, warum wir so ein kompliziertes System nutzen. Die Antwort darauf ist ganz einfach: Weil es am Ende so doch viel einfacher ist. Ohne unnötiges Hin- und Herschreiben mit Teammitgliedern werden alle wichtigen Informationen eingeholt! ")
           embed.add_field(name=":exclamation:", value="Bitte achte auf deine DMs. Möglicherweise schon akzeptierte Anfragen können fallen gelassen werden, wenn du nicht antwortest!")
           await message.channel.send(embed=embed)
-      
+
       # Notify user that everything was filled in
       else:
         found = main.collection.find_one({
@@ -150,14 +150,13 @@ class DmConversation(commands.Cog):
           for i in found['conversation']:
             author = await self.bot.fetch_user(i['userid'])
             message_history += author.name + "#" + author.discriminator + ": *" + i['message'] + "*\n"
-          
+
           message_history += ""
           embed.add_field(name=":books:", value=message_history)
 
-          team = await self.bot.fetch_user(460143849172631553)
-          team_dm = await team.create_dm()
-
-          await team_dm.send(embed=embed)
+          for member in main.team_members:
+            dm = await (await self.bot.fetch_user(member)).create_dm()
+            await dm.send(embed=embed)
 
           await message.channel.send("Deine Nachricht wurde erfolgreich übermittelt.")
           await message.channel.send(embed=embed)
@@ -193,14 +192,13 @@ class DmConversation(commands.Cog):
           for i in found['conversation']:
             author = await self.bot.fetch_user(i['userid'])
             message_history += author.name + "#" + author.discriminator + ": *" + i['message'] + "*\n"
-          
+
           message_history += ""
           embed.add_field(name=":books:", value=message_history)
 
-          team = await self.bot.fetch_user(460143849172631553)
-          team_dm = await team.create_dm()
-
-          await team_dm.send(embed=embed)
+          for member in main.team_members:
+            dm = await (await self.bot.fetch_user(member)).create_dm()
+            await dm.send(embed=embed)
 
           await message.channel.send("Deine Nachricht wurde erfolgreich übermittelt.")
           await message.channel.send(embed=embed)
