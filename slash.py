@@ -34,11 +34,6 @@ class Slash(commands.Cog):
     """.
     Creating the refund ticker
     """
-    # Respond to slash command
-    try:
-      await ctx.respond(eat=True)
-    except Exception:
-      print("Weird ctx.respond error. IDK why, doesn't fixed yet, please send help")
     # Check if user already has an open case
     query = {
       "userid": ctx.author_id
@@ -89,10 +84,6 @@ class Slash(commands.Cog):
     """.
     When this function the request is accepted
     """
-    try:
-      await ctx.respond(eat=True)
-    except Exception:
-      print("Weird ctx.respond error. IDK why, doesn't fixed yet, please send help")
 
     # Convert Userid-String to int
     userid = int(userid)
@@ -128,7 +119,6 @@ class Slash(commands.Cog):
     """.
     When this function is called the request gets cancelled
     """
-    await ctx.respond(eat=True)
     # Convert Userid-String to int
     userid = int(userid)
     # Check for permissions
@@ -167,7 +157,6 @@ class Slash(commands.Cog):
     if ctx.author_id not in main.team_members:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
       return
-    await ctx.respond(eat=True)
     # Convert Userid-String to int
     userid = int(userid)
     # Check for permissions
@@ -187,7 +176,6 @@ class Slash(commands.Cog):
     """
     Shows the user a case that he can work on
     """
-    await ctx.respond(eat=True)
     # Check for permissions
     if ctx.author_id not in main.team_members:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
@@ -259,7 +247,6 @@ class Slash(commands.Cog):
     "type": 3
   }], description="Fügt eine Antwort der Konversation hinzu. ", guild_ids=main.server_ids)
   async def _answer(self, ctx: SlashContext, userid, answer):
-    await ctx.respond(eat=True)
     userid = int(userid)
     found = main.collection.find_one({
           "userid": int(userid)
@@ -356,7 +343,6 @@ class Slash(commands.Cog):
     }
   ], description="Zeigt alle Details einer Anfrage", guild_ids=main.server_ids)
   async def _show(self, ctx: SlashContext, userid: str):
-    await ctx.respond(eat=True)
     if ctx.author_id not in main.team_members:
       await ctx.send("Du hast hierfür keine Berechtigungen! ", hidden=True)
       return
@@ -399,7 +385,7 @@ class Slash(commands.Cog):
       embed.add_field(name=":books:", value=message_history)
     dm = await ctx.author.create_dm()
     await dm.send(embed=embed)
-    await ctx.send(content="Wir haben dir die Details per DM zukommen lassen!", hidden=True, delete_after=7.5)
+    await ctx.send(content="Wir haben dir die Details per DM zukommen lassen!", hidden=True)
 
 
 def setup(bot):
