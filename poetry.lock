@@ -60,7 +60,7 @@ python-versions = "*"
 
 [[package]]
 name = "discord-py-slash-command"
-version = "2.3.2"
+version = "2.4.1"
 description = "A simple interaction handler for discord.py."
 category = "main"
 optional = false
@@ -173,7 +173,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "b02c2d0045343c7a28e0fe8a718890624927985d2c88642a66b84df7100351c2"
+content-hash = "c0b9909fec99dbf2bea0d907c7e50a3e7d4a3ed49db1309a30d4d4933bd133d6"
 
 [metadata.files]
 aiohttp = [
@@ -232,8 +232,8 @@ discord = [
     {file = "discord-1.7.3.tar.gz", hash = "sha256:846dd3d66888c2e0a8bd9120d8778a0fe088c003a7f6451668497f14e322a304"},
 ]
 discord-py-slash-command = [
-    {file = "discord-py-slash-command-2.3.2.tar.gz", hash = "sha256:ab3e73d683bb0ed098902c33de3c87c8a05c1e5dbe50682752dcc3fc0db4ce6a"},
-    {file = "discord_py_slash_command-2.3.2-py3-none-any.whl", hash = "sha256:3347442b70484b02eba40490f946cdfd58e080c4f698f9e2960f134d28faa41d"},
+    {file = "discord-py-slash-command-2.4.1.tar.gz", hash = "sha256:68811d8230ae741941b37ded29b3054c8dc204838c5322c8632aebbc173085a3"},
+    {file = "discord_py_slash_command-2.4.1-py3-none-any.whl", hash = "sha256:cc454093b28ca61c1427fbbb432baf6ea57777781afb45cf3a2cdf8d73bfd745"},
 ]
 "discord.py" = [
     {file = "discord.py-1.7.3-py3-none-any.whl", hash = "sha256:c6f64db136de0e18e090f6752ea68bdd4ab0a61b82dfe7acecefa22d6477bb0c"},
