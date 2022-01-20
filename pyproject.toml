@@ -9,7 +9,7 @@ python = "^3.8"
 discord = "^1.7.3"
 discord-py-slash-command = "^3.0.3"
 pymongo = "^4.0.1"
-dnspython = "^2.1.0"
+dnspython = "^2.2.0"
 python-dotenv = "^0.19.2"
 
 [tool.poetry.dev-dependencies]
